@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>🍳 Overcooked Online</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- UI Overlay -->
+        <div id="ui-overlay" class="hidden">
+            <div id="score-display">⭐ 0</div>
+            <div id="timer-display">⏱ 120</div>
+        </div>
+        <div id="orders-display" class="hidden"></div>
+
+        <!-- Canvas -->
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- Mobile Controls -->
+        <div id="mobile-controls" class="hidden">
+            <div id="joystick-area">
+                <div id="joystick-base">
+                    <div id="joystick-thumb"></div>
+                </div>
+            </div>
+            <div id="action-buttons">
+                <button id="btn-interact" class="action-btn">✋</button>
+                <button id="btn-drop" class="action-btn btn-secondary">⬇️</button>
+            </div>
+        </div>
+
+        <!-- Menu Screen -->
+        <div id="menu-screen">
+            <h1>🍳 Overcooked Online</h1>
+            <p class="subtitle">Masak bareng teman secara online!</p>
+
+            <div class="menu-section">
+                <input type="text" id="player-name" placeholder="Nama kamu..." maxlength="12" value="">
+            </div>
+
+            <div class="menu-section">
+                <button id="btn-create" class="menu-btn">🏠 Buat Room</button>
+            </div>
+
+            <div class="menu-section">
+                <div class="join-row">
+                    <input type="text" id="room-code-input" placeholder="Kode Room" maxlength="4" style="text-transform:uppercase">
+                    <button id="btn-join" class="menu-btn small">🚪 Gabung</button>
+                </div>
+            </div>
+
+            <p id="menu-error" class="error-text"></p>
+        </div>
+
+        <!-- Lobby Screen -->
+        <div id="lobby-screen" class="hidden">
+            <h1>🍳 Lobby</h1>
+            <div class="room-code-display">
+                <span>Kode Room:</span>
+                <strong id="lobby-code">----</strong>
+                <button id="btn-copy-code" class="copy-btn">📋</button>
+            </div>
+            <p class="subtitle">Bagikan kode ini ke teman!</p>
+
+            <div id="player-list"></div>
+
+            <button id="btn-start-game" class="menu-btn start-btn">▶️ Mulai Game</button>
+            <p id="lobby-info" class="info-text">Menunggu host memulai...</p>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div id="game-over-screen" class="hidden">
+            <h1>⏰ Waktu Habis!</h1>
+            <p class="final-score-text">Skor Tim: <span id="final-score">0</span></p>
+            <button id="btn-restart" class="menu-btn">🔄 Main Lagi</button>
+            <button id="btn-back-lobby" class="menu-btn secondary">🏠 Kembali ke Lobby</button>
+        </div>
+
+        <!-- Connection Status -->
+        <div id="connection-status" class="hidden">
+            <span id="status-text">Connecting...</span>
+        </div>
+    </div>
+
+    <script src="client.js"></script>
+</body>
+</html>
